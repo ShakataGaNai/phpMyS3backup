@@ -25,7 +25,12 @@ Here's the short version of what this tool does:
 *** "Private" permissions (no sharing)
 * Delete the local backups
 
-== The MIT License  ==
+== History ==
+2012-03-02 - Initial Release
+2012-02-24 - GitHub project started
+
+== License ==
+=== phpMyS3Backup - MIT License ==
 Copyright (c) 2012 Jon Davis
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -45,3 +50,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+=== AWS SDK for PHP ==
+The AWS SDK for PHP is copyright Amazon and licensed under the Apache 2.0
+license ( http://aws.amazon.com/apache2.0/ ).
