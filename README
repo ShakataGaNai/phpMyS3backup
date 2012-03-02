@@ -1,0 +1,47 @@
+== What is phpMyS3backup? ==
+phpMyS3backup is a PHP based tool that will backup a MySQL server to Amazon's 
+S3 service ( http://aws.amazon.com/s3/ ).  The tool requires php5-cli
+and mysqldump, it also uses the AWS SDK for PHP (
+https://github.com/amazonwebservices/aws-sdk-for-php ) which is included.
+
+== How to use? ==
+* Grab a copy of the latest code: http://goo.gl/t7GLh
+* Rename sample.config.inc.php to config.inc.php
+* Fill in the blanks for config.inc.php
+* Execute `php phpMyS3backup.php` and wait
+* When you get dropped back to the command line, check your S3
+* Done!
+
+== How it works? ==
+Here's the short version of what this tool does:
+* Get's a list of all your databases (except `information_schema`)
+* mysqldump each database to it's own file
+* gzip's each dump file
+* Creates a unique S3 bucket based on the server name & AWS key
+* Upload all files (under a unique date/time folder name) to S3
+** All files are stored with:
+*** Reduced Redundancy Storage
+*** AES256 Encryption
+*** "Private" permissions (no sharing)
+* Delete the local backups
+
+== The MIT License  ==
+Copyright (c) 2012 Jon Davis
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
